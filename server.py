@@ -1,6 +1,6 @@
 import http.server
 import socketserver
-from app import get_tasks
+from app import get_tasks, delete_task, create_task
 import json
 
 PORT = 8080
@@ -12,11 +12,19 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
     def do_POST(self):
         self.send_response(200)
+        content_length = int(self.headers['Content-Length'])
+        post_body = self.rfile.read(content_length)
         self.end_headers()
+        print(post_body)
+        if(post_body != b''):
+            delete_task(post_body)
+
         tasks = get_tasks()
         json_string = json.dumps(tasks)
         print(str.encode(json_string))
         self.wfile.write(str.encode(json_string))
+     
+            
 
 with socketserver.TCPServer(('', PORT), Handler) as httpd:
     try:

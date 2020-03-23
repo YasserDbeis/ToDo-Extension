@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" http-equiv="refresh" content="3">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" http-equiv="refresh" content="3;URL='http://localhost:8080/'">
     <link rel="stylesheet" type="text/css" href="style2.css">
     <title>Microsoft To-Do New Tab</title>
 </head>
-<body onload = "getTasks()">
+<body id = "bodyID" onload = "getTasks();">
   <div class="center">
+    <input id="chatbotInput" class="chatbotInput" />
     <span id="chatbotOutput" class="chatbotOutput">Talk to me.</span>
-    <input id="submitButton" type="submit"/>
+    <button id="submitButton" type="submit">Submit</button>
   </div>
     
     <table id="myTable", class="center">
