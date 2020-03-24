@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" http-equiv="refresh" content="3;URL='http://localhost:8080/'">
+<head class="head">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style2.css">
-    <title>Microsoft To-Do New Tab</title>
+    <title>Todoist New Tab</title>
 </head>
-<body id = "bodyID" onload = "getTasks();">
+<body style = "text-align: center;" id = "bodyID" onload = "getTasks();">
   <div class="center">
-    <input id="chatbotInput" class="chatbotInput" />
-    <span id="chatbotOutput" class="chatbotOutput">Talk to me.</span>
-    <button id="submitButton" type="submit">Submit</button>
-  </div>
+    <div class = "introText" style="display: inline-block; text-align: left;">
+      Hello, what would you like to do?
+    </div>
+    <div style="text-align: center;">
+      <input id="chatbotInput" class="chatbotInput" placeholder="Add a task..." />
+      <!-- <span id="chatbotOutput" class="chatbotOutput"></span> -->
+      <button class="submitButton" id="submitButton" type="submit"></button>
+    </div>
+    
+  </div class="todo-list">
     
     <table id="myTable", class="center">
       <thead>
         <tr>
-          <th>Tasks</th>
         </tr>
       </thead>
       <tbody>
@@ -28,30 +33,3 @@
     <script src='./app.js'></script>
 </body>
 </html>
-
-
-<!-- 
-
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Organizer</th>
-      <th scope="col">Subject</th>
-      <th scope="col">Start</th>
-      <th scope="col">End</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% if events %}
-      {% for event in events %}
-        <tr>
-          <td>{{ event.organizer.emailAddress.name }}</td>
-          <td>{{ event.subject }}</td>
-          <td>{{ event.start.dateTime|date:'SHORT_DATETIME_FORMAT' }}</td>
-          <td>{{ event.end.dateTime|date:'SHORT_DATETIME_FORMAT' }}</td>
-        </tr>
-      {% endfor %}
-    {% endif %}
-  </tbody>
-</table>
-{% endblock %} -->

@@ -26,9 +26,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         json_string = json.dumps(tasks)
         print(str.encode(json_string))
         self.wfile.write(str.encode(json_string))
-     
-            
-
+        
 with socketserver.TCPServer(('', PORT), Handler) as httpd:
     try:
         httpd.serve_forever()

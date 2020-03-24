@@ -1,32 +1,110 @@
-* {
-	font-family: monospace, sans;
-  	font-size: 30px;
+html {
+	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+  	font-size: 45px;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	background-color: aqua;
+	-moz-box-sizing: border-box; 
+	min-width: 100%;
+	max-width: 100%;
+	background: linear-gradient(104deg, rgba(255,255,255,1) 0%, rgba(99,147,157,1) 61%, rgba(25,96,111,1) 100%);
+	background-attachment:fixed;
+	height:100%;
 }
 
+
 .center {
-	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
 	font-size: 40px;
 	/* margin: 0px auto; */
 }
 
+.introText {
+	align-content: flex-start;
+	margin-top: 100px;
+	align-content: left;
+	font-size: 20px;
+	color: white;
+	font-weight: bold;
+}
+
+.chatbotInput {
+	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+	outline: 0;
+	border-width: 0 0 5px;
+	border-color: whitesmoke;
+	color: whitesmoke;
+	font-size: 45px;
+	min-width: 650px;
+	max-width: 650px;
+	text-align: left;
+	background: linear-gradient(104deg, rgba(255,255,255,1) 0%, rgba(99,147,157,1) 61%, rgba(25,96,111,1) 100%);
+	background-attachment:fixed;
+	margin-bottom: 50px;
+}
+
+
+.submitButton {
+	display: none;
+}
+
 button {
-	box-shadow:inset 0px 34px 0px -15px #b54b3a;
-	background-color:#a73f2d;
-	border:1px solid #241d13;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:9px 23px;
-	text-decoration:none;
-	text-shadow:0px -1px 0px #7a2a1d;
+	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+	min-width: 650px;
+	max-width: 650px;
+	background: transparent;
+	box-shadow: 0px 1px 0px white;
+	cursor: pointer;
+	border: 0;
+	color: white;
+	font-size: 40px;
+	padding: 10px 30px;
+	display: inline-block;
+	outline: 0;
  }
+
+
+::placeholder {
+	font-weight: lighter;
+	color: white;
+	opacity: 50%;
+	font-size: 45px;
+
+}
+
+
+/* 
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300);
+
+span:before, span:after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  top: 50%;
+  margin-top: -0.5px;
+  background: #fff;
+}
+
+span:before {
+  left: -2.5px;
+}
+span:after {
+  right: 2.5px;
+  background: #fff;
+  transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+span:hover:before {
+  background: #fff;
+  width: 100%;
+  transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+span:hover:after {
+  background: transparent;
+  width: 100%;
+  transition: 0s;
+}
+ */
