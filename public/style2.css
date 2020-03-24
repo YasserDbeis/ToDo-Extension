@@ -46,6 +46,7 @@ html {
 }
 
 
+
 .submitButton {
 	display: none;
 }
@@ -60,7 +61,7 @@ button {
 	border: 0;
 	color: white;
 	font-size: 30px;
-	padding: 7px 20px;
+	padding: 7px 0px 10px 0px;
 	display: inline-block;
 	outline: 0;
 	overflow: hidden;
@@ -76,9 +77,6 @@ button {
 }
 
 
-
-/* @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300); */
-
 span {
 	position: relative;
 	display: block;
@@ -92,7 +90,7 @@ span:before, span:after {
   height: 1px;
   top: 50%;
   margin-left: 7.5%;
-  margin-top: -0.5px;
+  margin-top: -0.1px;
   background: #fff;
 }
 

@@ -5,6 +5,7 @@ import uuid, requests, json
 token = 'a5f743262263c060a85465a3e5e03615a28b7871'
 api = todoist.TodoistAPI('{}'.format(token))
 api.sync()
+print(api.state['user'])
 full_name = api.state['user']['full_name']
 print(full_name)
 
@@ -16,6 +17,10 @@ for project in api.state['projects']:
 # item = api.items.add('Task1', project_id=projID)
 
 # api.commit()
+
+def get_name():
+    return full_name;
+
 
 def get_tasks():
 

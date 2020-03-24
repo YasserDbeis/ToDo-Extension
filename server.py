@@ -1,6 +1,6 @@
 import http.server
 import socketserver
-from app import get_tasks, delete_task, create_task
+from app import get_tasks, delete_task, create_task, get_name
 import json
 
 PORT = 8080
@@ -18,14 +18,20 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         print(post_body)
         
         # delete_task(post_body)
-        if(post_body != b'' and not post_body.isdigit()):
+        if (post_body == b'getName'):
+            print("name", post_body)
+            name = get_name();
+            self.wfile.write(str.encode(name))
+        elif(post_body != b'' and not post_body.isdigit()):
             create_task(post_body)
         elif (post_body != b'' and post_body.isdigit()):
             delete_task(post_body)
-        tasks = get_tasks()
-        json_string = json.dumps(tasks)
-        print(str.encode(json_string))
-        self.wfile.write(str.encode(json_string))
+        else:
+            tasks = get_tasks()
+            json_string = json.dumps(tasks)
+            print(str.encode(json_string))
+            self.wfile.write(str.encode(json_string))
+
         
 with socketserver.TCPServer(('', PORT), Handler) as httpd:
     try:

@@ -1,7 +1,7 @@
 const submitButton = document.getElementById('submitButton');
 const chatbotInput = document.getElementById('chatbotInput');
 const chatbotOutput = document.getElementById('chatbotOutput');
-
+var taskLen;
 
 
 submitButton.onclick = userSubmitEventHandler;
@@ -21,6 +21,29 @@ function userSubmitEventHandler(event) {
     }
 }
 
+function getName(task) {
+    const myRequest = new Request('/', {
+        method: 'POST',
+        body: 'getName',
+    });
+    fetch(myRequest).then(function(response) {  //
+        if (!response.ok) {
+            console.log("err")
+            throw new Error('HTTP error, status = ' + response.status);
+        } else {
+            console.log("name");
+            return response;
+        }
+    }).then(response => response.text())
+    .then(function(name) {
+        var introMsg = "Hey, " + name + "! What would you like to do?"
+        document.getElementById("introText").innerHTML = introMsg;
+
+    }).catch((err) => {
+        console.error(err);
+    });
+}
+
 
 function createTask(task) {
     const myRequest = new Request('/', {
@@ -34,7 +57,24 @@ function createTask(task) {
             throw new Error('HTTP error, status = ' + response.status);
         } else {
             console.log("G");
-            getTasks();
+            // getTasks();
+            if(task != ''){
+                var tableRef = document.getElementById('myTable').getElementsByTagName('tbody')[0];
+                var newRow = tableRef.insertRow(0);
+                var newCell = newRow.insertCell(0);
+                var newButton = document.createElement("button");
+                newButton.setAttribute("id", taskLen.toString(10));
+                addEvent(newButton, taskLen);
+                var newText = document.createTextNode(task);
+                var newSpan = document.createElement("span");
+                newSpan.append(newButton)
+                newCell.append(newSpan);
+                newButton.append(newText);
+            }
+            
+            
+            return response;
+
         }
     }).catch((err) => {
         console.error(err);
@@ -52,6 +92,7 @@ function deleteTask(task) {
             throw new Error('HTTP error, status = ' + response.status);
         } else {
             console.log("G");
+            taskLen = taskLen - 1;
             getTasks();
         }
     }).catch((err) => {
@@ -78,20 +119,19 @@ function getTasks() {
     .then(function(json_string) {
         // chatbotInput.value = '';
         // chatbotOutput.innerText = '';
-
         console.log(typeof(json_string));
         console.log(json_string);
         console.log(json_string[0]);
-        var old_body = document.getElementById('myTable').getElementsByTagName('tbody');
         var i;
+        // var old_body = document.getElementById('myTable').getElementsByTagName('tbody');
         var tableRef = document.getElementById('myTable').getElementsByTagName('tbody')[0];
 
         for(i = 0; i < tableRef.rows.length; i++) {
             tableRef.textContent = '';
         }
-
+        taskLen = json_string.length;
         for(i = 0; i < json_string.length; i++) {
-            var newRow = tableRef.insertRow(-1);
+            var newRow = tableRef.insertRow(0);
             var newCell = newRow.insertCell(0);
             var newButton = document.createElement("button");
             newButton.setAttribute("id", i.toString(10));
@@ -105,6 +145,7 @@ function getTasks() {
             newButton.append(newText);
             
         }
+        getName();
 
 
     }).catch((err) => {
