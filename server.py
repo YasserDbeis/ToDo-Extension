@@ -16,9 +16,12 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         post_body = self.rfile.read(content_length)
         self.end_headers()
         print(post_body)
-        if(post_body != b''):
+        
+        # delete_task(post_body)
+        if(post_body != b'' and not post_body.isdigit()):
+            create_task(post_body)
+        elif (post_body != b'' and post_body.isdigit()):
             delete_task(post_body)
-
         tasks = get_tasks()
         json_string = json.dumps(tasks)
         print(str.encode(json_string))

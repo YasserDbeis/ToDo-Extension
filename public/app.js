@@ -4,22 +4,24 @@ const chatbotOutput = document.getElementById('chatbotOutput');
 
 
 
-delButton.onclick = userDeleteEventHandler;
 submitButton.onclick = userSubmitEventHandler;
 chatbotInput.onkeyup = userSubmitEventHandler;
 
 
-function userDeleteEventHandler(event) {
-    if ((event.keyCode && event.keyCode === 13) ||
-        event.type === 'click') {
-        deleteTask(delButton.id);
+// function userDeleteEventHandler(event) {
+//     if ((event.keyCode && event.keyCode === 13) ||
+//         event.type === 'click') {
+//             event.stopPropagation();
+//         deleteTask(delButton.id);
 
-    }
-}
+//     }
+// }
 
 function userSubmitEventHandler(event) {
     if ((event.keyCode && event.keyCode === 13) ||
         event.type === 'click') {
+        
+        event.stopPropagation();
         createTask(chatbotInput.value);
 
     }
