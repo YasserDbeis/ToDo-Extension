@@ -99,7 +99,9 @@ function getTasks() {
             addEvent(newButton, i);
 
             var newText = document.createTextNode(json_string[i].content);
-            newCell.append(newButton);
+            var newSpan = document.createElement("span");
+            newSpan.append(newButton)
+            newCell.append(newSpan);
             newButton.append(newText);
             
         }
@@ -115,7 +117,9 @@ function addEvent(newButton, i){
     if (typeof window.addEventListener === 'function'){
         (function (_newButton) {
             newButton.addEventListener("click", function(){
-                newButton.style.setProperty("text-decoration", "line-through");
+                newButton.innerText = "Task Deleted";
+                newButton.style.setProperty("color", "#c45e5e");
+                newButton.style.setProperty("font-weight", "bolder");
                 deleteTask(i);
                 console.log(i);
             });

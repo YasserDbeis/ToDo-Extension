@@ -23,6 +23,7 @@ html {
 .introText {
 	align-content: flex-start;
 	margin-top: 100px;
+	text-align: left;
 	align-content: left;
 	font-size: 20px;
 	color: white;
@@ -58,10 +59,11 @@ button {
 	cursor: pointer;
 	border: 0;
 	color: white;
-	font-size: 40px;
-	padding: 10px 30px;
+	font-size: 30px;
+	padding: 7px 20px;
 	display: inline-block;
 	outline: 0;
+	overflow: hidden;
  }
 
 
@@ -74,8 +76,14 @@ button {
 }
 
 
-/* 
-@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300);
+
+/* @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300); */
+
+span {
+	position: relative;
+	display: block;
+	cursor: pointer;
+  }
 
 span:before, span:after {
   content: '';
@@ -83,6 +91,7 @@ span:before, span:after {
   width: 0%;
   height: 1px;
   top: 50%;
+  margin-left: 7.5%;
   margin-top: -0.5px;
   background: #fff;
 }
@@ -93,18 +102,18 @@ span:before {
 span:after {
   right: 2.5px;
   background: #fff;
-  transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: width 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 span:hover:before {
   background: #fff;
-  width: 100%;
+  width: 85%;
   transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 span:hover:after {
   background: transparent;
-  width: 100%;
+  width: 85%;
   transition: 0s;
 }
- */
+
