@@ -3,7 +3,7 @@ import socketserver
 from app import get_tasks, delete_task, create_task, get_name
 import json
 
-PORT = 8080
+PORT = 5000
 DIRECTORY = 'public'
 
 class Handler(http.server.SimpleHTTPRequestHandler):
