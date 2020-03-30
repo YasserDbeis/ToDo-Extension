@@ -4,7 +4,7 @@ import os
 from app import get_tasks, delete_task, create_task, get_name
 import json
 
-PORT = int(os.environ.get("PORT", 5000))
+PORT = 8080
 DIRECTORY = 'public'
 
 class Handler(http.server.SimpleHTTPRequestHandler):
