@@ -1,9 +1,10 @@
 import http.server
 import socketserver
+import os
 from app import get_tasks, delete_task, create_task, get_name
 import json
 
-PORT = 5000
+PORT = int(os.environ.get("PORT", 5000))
 DIRECTORY = 'public'
 
 class Handler(http.server.SimpleHTTPRequestHandler):
