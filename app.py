@@ -2,7 +2,7 @@ import todoist
 import uuid, requests, json
 
 
-token = 'a5f743262263c060a85465a3e5e03615a28b7871'
+token = ''
 api = todoist.TodoistAPI('{}'.format(token))
 api.sync()
 print(api.state['user'])
